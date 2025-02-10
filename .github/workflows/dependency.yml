@@ -20,15 +20,16 @@ jobs:
   dependent-job-1:
     needs: [job-on-ubuntu, job-on-windows]
     runs-on: macos-latest
-    name: A job that run on mac after two jobs
+    name: A job that runs on macOS after two jobs
     steps:
       - run: pwd
-      - name: new step
-        run : ls
-      - run : env
+      - name: New step
+        run: ls
+      - run: env
+
   dependent-job-2:
     needs: dependent-job-1
     runs-on: ubuntu-latest
     name: A final job
     steps:
-     -run: echo Wow this is cool!
+      - run: echo "Wow, this is cool!"
